@@ -1,23 +1,21 @@
 from turtle import Screen, Turtle
-UP = 90
-DOWN = 270
 
-class Padle(Turtle):
-    def __init__(self):
+
+class Paddle(Turtle):
+    def __init__(self, x, y):
         super().__init__()
-        self.penup()
-        #self.hideturtle()
-        #self.shape("square")
-        self.color("white")
         self.shape("square")
-        self.shapesize(3, 1)
-        self.setx(350)
-        self.sety(0)
+        self.color("white")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.penup()
+        self.goto(x, y)
 
-    def up(self):
-        self.sety(self.ycor() + 50)
+    def go_up(self):
+        new_y = self.ycor() + 20
+        self.goto(self.xcor(), new_y)
 
-    def down(self):
-        self.sety(self.ycor() - 50)
+    def go_down(self):
+        new_y = self.ycor() - 20
+        self.goto(self.xcor(), new_y)
 
 
